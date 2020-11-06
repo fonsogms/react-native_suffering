@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
-import Navbar from "./components/Navbar";
-import { WebView } from "react-native-webview";
-import { NavigationContainer, StackActions } from "@react-navigation/native";
+import React from "react";
+import { StyleSheet, View, StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import {
@@ -18,7 +16,7 @@ export default function App() {
 
   return (
     <View
-      onLayout={() => console.log("waddup")}
+      onLayout={() => console.log("waddp")}
       style={{ marginTop: StatusBar.currentHeight, flex: 1 }}
     >
       {/*       <Navbar></Navbar>

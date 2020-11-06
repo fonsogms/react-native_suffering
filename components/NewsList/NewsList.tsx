@@ -13,7 +13,7 @@ const NewsList = ({ navigation }) => {
   const getData = async () => {
     try {
       const { data } = await axios.get(
-        "https://newsapi.org/v2/top-headlines?language=es&apiKey=acc84b54df7c4ad58c45789d979f54bf"
+        "https://newsapi.org/v2/top-headlines?language=en&apiKey=acc84b54df7c4ad58c45789d979f54bf"
       );
       setNews(data);
     } catch (err) {
