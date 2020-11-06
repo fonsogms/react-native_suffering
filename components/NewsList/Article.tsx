@@ -33,12 +33,15 @@ const NewInfo = (props: { article: Article; navigation: any }) => {
         <Image
           style={{
             marginTop: 10,
-            width: "100%",
-            height: 100,
+            width: 200,
+            height: 150,
             borderRadius: 10,
           }}
-          resizeMode="contain"
-          source={{ uri: props.article.urlToImage || "http://google.com" }}
+          source={{
+            uri: props.article.urlToImage
+              ? props.article.urlToImage
+              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png",
+          }}
         />
         <View style={{ margin: 10 }}>
           <Text style={{ fontWeight: "bold", textAlign: "center" }}>
