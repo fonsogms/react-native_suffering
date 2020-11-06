@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 import Navbar from "./components/Navbar";
 import { WebView } from "react-native-webview";
+import { NavigationContainer, StackActions } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
+import NewsList from "./components/NewsList/NewsList";
+import ArticleDetails from "./components/ArticleDetails";
 export default function App() {
+  console.log("wassup!");
+  console.log(useDimensions());
+  const Stack = createStackNavigator();
+
   return (
-    <View style={{ marginTop: StatusBar.currentHeight, height: "100%" }}>
-      <Navbar></Navbar>
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-      </View>
-      <WebView source={{ uri: "https://reactnative.dev/" }} />
+    <View
+      onLayout={() => console.log("waddup")}
+      style={{ marginTop: StatusBar.currentHeight, flex: 1 }}
+    >
+      {/*       <Navbar></Navbar>
+       */}
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home">
+            {(props) => <NewsList {...props} />}
+          </Stack.Screen>
+          <Stack.Screen name="Details">
+            {(props) => <ArticleDetails {...props} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/*       <WebView source={{ uri: "https://reactnative.dev/" }} />
+       */}
     </View>
   );
 }
